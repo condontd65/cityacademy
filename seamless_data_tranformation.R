@@ -64,17 +64,28 @@ ca <- data.frame(old$First.Name,
                  ,stringsAsFactors = FALSE)
 
 # Column Names
-colnames(ca) <- c('Name: First','Name: Last','Email','Phone','Date of Birth','Current Address: Street 1',
-                  'Current Address: City','Current Address: Zip','Training Track of Interest','Race',
-                  'Race2','Ethnicity','Do you speak a language other than English?','Please select languages spoken.',
-                  'Highest Educational Attainment','US Veteran Status','Where did you attend the information session?',
-                  'Proof of Boston Residency','Proof of Income','1-9/Citizenship Documentation','Proof of Education',
-                  'Drug Test Form',"Valid Driver's License/Proof of Age","Valid Driver's License/Proof of Age",
-                  'RMV Release Form','GLE Result','Driving Record Review Result','CORI Form','Emergency Contact Phone',
+colnames(ca) <- c('Name: First','Name: Last',
+                  'Email','Phone',
+                  'Date of Birth','Current Address: Street 1',
+                  'Current Address: City','Current Address: Zip',
+                  'Training Track of Interest','Race',
+                  'Race2','Ethnicity',
+                  'Do you speak a language other than English?','Please select languages spoken.',
+                  'Please Specify other languages spoken','Highest Educational Attainment',
+                  'US Veteran Status','Where did you attend the information session?',
+                  'Proof of Boston Residency','Proof of Income',
+                  '1-9/Citizenship Documentation','Proof of Education',
+                  'Drug Test Form',"Valid Driver's License/Proof of Age",
+                  'RMV Release Form',
+                  'GLE Result','Driving Record Review Result',
+                  'CORI Form','Emergency Contact Phone',
                   'Reported Family Size','Reported Yearly Household Income AND Calculated Household Income',
-                  'Are you currently employed? Dont Use','Additional Income Sources','Please specify other income sources.',
-                  'Are you currently employed?','Most Recent Job End Date','Total Years of Work Experience','Total Score',
-                  'GLE Score','Applicant Status','EMT Cohort','Current Hourly Wage','Basic EMT Course')
+                  'Are you currently employed? Dont Use','Additional Income Sources',
+                  'Please specify other income sources.','Are you currently employed?',
+                  'Most Recent Job End Date','Total Years of Work Experience',
+                  'Total Score','GLE Score',
+                  'Applicant Status','EMT Cohort',
+                  'Current Hourly Wage','Basic EMT Course')
 
 ##### Transformations #####
 
@@ -143,14 +154,32 @@ ca$`Do you speak a language other than English?` <- ifelse(!is.na(ca$`Please sel
 #ca$`Please select languages spoken.` <- gsub('Tigrighna', 
  #                                            'Other',
   #                                           ca$`Please select languages spoken.`)
+
+
                                              
         
 ## Highest Educational Attainment
 
-ca$`Highest Educational Attainment` <- gsub('EMT',
-                                        'Emergency Medical Technician (EMT)',
-                                        ca$`Highest Educational Attainment`)
+ca$`Highest Educational Attainment` <- gsub('HS Diploma',
+                                            'High school diploma',
+                                            ca$`Highest Educational Attainment`)
 
+ca$`Highest Educational Attainment` <- gsub('Post Grad Degree',
+                                            'Postgraduate degree',
+                                            ca$`Highest Educational Attainment`)
+
+## Veteran Status
+ca$`US Veteran Status` <- gsub('Never Enrolled',
+                               'Not a US veteran',
+                               ca$`US Veteran Status`)
+
+ca$`US Veteran Status` <- gsub('Veteran',
+                               'US veteran',
+                               ca$`US Veteran Status`)
+
+ca$`US Veteran Status` <- gsub('Active Duty',
+                               'US military active duty',
+                               ca$`US Veteran Status`)
 
 
 
