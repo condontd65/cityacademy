@@ -101,6 +101,7 @@ ca$Race2 [ ca$Race2 == 'Hispanic or Latina/o' ] <- ''
 ca$Race [ ca$Race == 'Hispanic or Latina/o' ] <- ''
 
 ca [ ca == ''] <- NA
+ca [ ca == 'N/A'] <- NA
 
 ca$Race2 <- ifelse(!is.na(ca$Ethnicity),
                   paste(ca$Race2,', ',ca$Ethnicity, sep = ''),
@@ -111,13 +112,44 @@ ca$Race <- ifelse(!is.na(ca$Race2) & !is.na(ca$Race),
                   ca$Race)
 
 ## Language
+# Do you speak a language other than English
+ca$`Do you speak a language other than English?` <- ifelse(!is.na(ca$`Please select languages spoken.`),
+                                                           'Yes', 'No')
+# Clean up the Please select languages spoken
+#get list of languages (This is a mess, see if it's totally necessary)
+#languages <- unique(unlist(strsplit(ca$`Please select languages spoken.`, ','))) %>%
+ # sort()
 
+#ca$`Please select languages spoken.` <- gsub('Amaric', 
+ #                                          'Other',
+  #                                           ca$`Please select languages spoken.`)
 
+#ca$`Please select languages spoken.` <- gsub('Hindi', 
+ #                                          'Other',
+  #                                           ca$`Please select languages spoken.`)
 
+#ca$`Please select languages spoken.` <- gsub('Hindo', 
+ #                                           'Other',
+  #                                           ca$`Please select languages spoken.`)
 
+#ca$`Please select languages spoken.` <- gsub('Oromghna', 
+ #                                           'Other',
+  #                                           ca$`Please select languages spoken.`)
 
+#ca$`Please select languages spoken.` <- gsub('Tigirinya', 
+ #                                            'Other',
+  #                                           ca$`Please select languages spoken.`)
 
+#ca$`Please select languages spoken.` <- gsub('Tigrighna', 
+ #                                            'Other',
+  #                                           ca$`Please select languages spoken.`)
+                                             
+        
+## Highest Educational Attainment
 
+ca$`Highest Educational Attainment` <- gsub('EMT',
+                                        'Emergency Medical Technician (EMT)',
+                                        ca$`Highest Educational Attainment`)
 
 
 
