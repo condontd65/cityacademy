@@ -181,6 +181,216 @@ ca$`US Veteran Status` <- gsub('Active Duty',
                                'US military active duty',
                                ca$`US Veteran Status`)
 
+## Information Session
+ca$`Where did you attend the information session?` <- gsub('El Centro',
+                                                           'El Centro Del Cardenal, Catholic Charities',
+                                                           ca$`Where did you attend the information session?`)
+
+ca$`Where did you attend the information session?` <- gsub(' (4/28)',
+                                                           '',
+                                                           ca$`Where did you attend the information session?`, fixed = TRUE)
+
+ca$`Where did you attend the information session?` <- gsub('BCYF Perkins',
+                                                           'BCYF Perkins Community Center',
+                                                           ca$`Where did you attend the information session?`)
+
+ca$`Where did you attend the information session?` <- gsub('RCFE',
+                                                           'Roxbury Center for Financial Empowerment',
+                                                           ca$`Where did you attend the information session?`)
+
+ca$`Where did you attend the information session?` <- gsub('rcfe',
+                                                           'Roxbury Center for Financial Empowerment',
+                                                           ca$`Where did you attend the information session?`)
+
+ca$`Where did you attend the information session?` <- gsub('charlestown adult ed',
+                                                           'Other',
+                                                           ca$`Where did you attend the information session?`)
+
+ca$`Where did you attend the information session?` <- gsub('AACA',
+                                                           'Asian American Civic Association',
+                                                           ca$`Where did you attend the information session?`)
+
+ca$`Where did you attend the information session?` <- gsub('EBNHC',
+                                                           'East Boston Community Health Center',
+                                                           ca$`Where did you attend the information session?`)
+
+ca$`Where did you attend the information session?` <- gsub('JVS',
+                                                           'Mass Hire Boston (JVS)',
+                                                           ca$`Where did you attend the information session?`)
+
+ca$`Where did you attend the information session?` <- gsub('bcl',
+                                                           'Boston EMS',
+                                                           ca$`Where did you attend the information session?`)
+
+ca$`Where did you attend the information session?` <- gsub('BCL',
+                                                           'Boston EMS',
+                                                           ca$`Where did you attend the information session?`)
+
+ca$`Where did you attend the information session?` <- gsub('EMS Headquarters',
+                                                           'Boston EMS',
+                                                           ca$`Where did you attend the information session?`)
+
+## Yes/No fields
+
+# Proof of Boston Residency
+ca$`Proof of Boston Residency` <- gsub('y',
+                                       'Complete',
+                                       ca$`Proof of Boston Residency`)
+
+ca$`Proof of Boston Residency` <- gsub('Y',
+                                       'Complete',
+                                       ca$`Proof of Boston Residency`)
+
+ca$`Proof of Boston Residency` <- gsub('N',
+                                       'Incomplete',
+                                       ca$`Proof of Boston Residency`)
+
+# Proof of Income
+ca$`Proof of Income` <- gsub('Y',
+                             'Complete',
+                             ca$`Proof of Income`)
+
+ca$`Proof of Income` <- gsub('y',
+                             'Complete',
+                             ca$`Proof of Income`)
+
+ca$`Proof of Income` <- gsub('N/A (Laid off in Dec)',
+                             NA,
+                             ca$`Proof of Income`, fixed = TRUE)
+
+ca$`Proof of Income` <- gsub('N',
+                             'Incomplete',
+                             ca$`Proof of Income`)
+
+# 1-9/Citizenship Documentation
+ca$`1-9/Citizenship Documentation` <- gsub('y',
+                                      'Complete',
+                                      ca$`1-9/Citizenship Documentation`)
+
+ca$`1-9/Citizenship Documentation` <- gsub('Y',
+                                      'Complete',
+                                      ca$`1-9/Citizenship Documentation`)
+
+ca$`1-9/Citizenship Documentation` <- gsub('N',
+                                      'Incomplete',
+                                      ca$`1-9/Citizenship Documentation`)
+
+# Proof of Education
+ca$`Proof of Education` <- gsub('y',
+                                'Complete',
+                                ca$`Proof of Education`)
+
+ca$`Proof of Education` <- gsub('Y',
+                                'Complete',
+                                ca$`Proof of Education`)
+
+ca$`Proof of Education` <- gsub('N',
+                                'Incomplete',
+                                ca$`Proof of Education`)
+
+# Drug Test Form
+ca$`Drug Test Form` <- gsub('y',
+                            'Complete',
+                            ca$`Drug Test Form`)
+
+ca$`Drug Test Form` <- gsub('Y',
+                            'Complete',
+                            ca$`Drug Test Form`)
+
+ca$`Drug Test Form` <- gsub('N',
+                            'Incomplete',
+                            ca$`Drug Test Form`)
+
+# Valid Driver's License/Proof of Age
+ca$`Valid Driver's License/Proof of Age` <- gsub('y',
+                                                 'Complete',
+                                                 ca$`Valid Driver's License/Proof of Age`)
+
+ca$`Valid Driver's License/Proof of Age` <- gsub('Y',
+                                                 'Complete',
+                                                  ca$`Valid Driver's License/Proof of Age`)
+
+# RMV Release Form
+ca$`RMV Release Form` <- gsub('y',
+                              'Complete',
+                               ca$`RMV Release Form`)
+
+ca$`RMV Release Form` <- gsub('Y',
+                              'Complete',
+                               ca$`RMV Release Form`)
+
+ca$`RMV Release Form` <- gsub('N',
+                              'Incomplete',
+                               ca$`RMV Release Form`)
+
+# GLE Result
+ca$`GLE Result` <- gsub('y',
+                        'Complete',
+                        ca$`GLE Result`)
+
+ca$`GLE Result` <- gsub('Y',
+                        'Complete',
+                        ca$`GLE Result`)
+
+ca$`GLE Result` <- gsub('N',
+                        'Incomplete',
+                        ca$`GLE Result`)
+
+# Driving Record Review Result
+ca$`Driving Record Review Result` <- gsub('y',
+                        'Complete',
+                        ca$`Driving Record Review Result`)
+
+ca$`Driving Record Review Result` <- gsub('Y',
+                        'Complete',
+                        ca$`Driving Record Review Result`)
+
+ca$`Driving Record Review Result` <- gsub('N',
+                        'Incomplete',
+                        ca$`Driving Record Review Result`)
+
+# CORI Form
+ca$`CORI Form` <- gsub('y',
+                                          'Complete',
+                                          ca$`CORI Form`)
+
+ca$`CORI Form` <- gsub('Y',
+                                          'Complete',
+                                          ca$`CORI Form`)
+
+ca$`CORI Form` <- gsub('N',
+                                          'Incomplete',
+                                          ca$`CORI Form`)
+
+## Are you currenlty employed?
+ca$`Are you currently employed?` <- gsub('Y',
+                                         'Yes',
+                                         ca$`Are you currently employed?`)
+
+ca$`Are you currently employed?` <- gsub('y',
+                                         'Yes',
+                                         ca$`Are you currently employed?`)
+
+ca$`Are you currently employed?` <- gsub('N',
+                                         'No',
+                                         ca$`Are you currently employed?`)
+
+ca$`Are you currently employed?` <- gsub('n',
+                                         'No',
+                                         ca$`Are you currently employed?`)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
