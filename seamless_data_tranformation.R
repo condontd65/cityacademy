@@ -122,38 +122,25 @@ ca$Race <- ifelse(!is.na(ca$Race2) & !is.na(ca$Race),
                   paste(ca$Race,', ',ca$Race2, sep = ''),
                   ca$Race)
 
+ca$Race <- gsub('Black/AA',
+                'Black/African American',
+                ca$Race)
+ca$Race <- gsub('Prefer not to say/Other',
+                'Other',
+                ca$Race)
+ca$Race <- gsub('Native Hawaiian/PI',
+                'Native Hawaiian/Pacific Islander',
+                ca$Race)
+ca$Race <- gsub('American Indian/Alaska Native',
+                'American Indian/Alaskan Native',
+                ca$Race)
+
+
 ## Language
 # Do you speak a language other than English
 ca$`Do you speak a language other than English?` <- ifelse(!is.na(ca$`Please select languages spoken.`),
                                                            'Yes', 'No')
 # Clean up the Please select languages spoken
-#get list of languages (This is a mess, see if it's totally necessary)
-#languages <- unique(unlist(strsplit(ca$`Please select languages spoken.`, ','))) %>%
- # sort()
-
-#ca$`Please select languages spoken.` <- gsub('Amaric', 
- #                                          'Other',
-  #                                           ca$`Please select languages spoken.`)
-
-#ca$`Please select languages spoken.` <- gsub('Hindi', 
- #                                          'Other',
-  #                                           ca$`Please select languages spoken.`)
-
-#ca$`Please select languages spoken.` <- gsub('Hindo', 
- #                                           'Other',
-  #                                           ca$`Please select languages spoken.`)
-
-#ca$`Please select languages spoken.` <- gsub('Oromghna', 
- #                                           'Other',
-  #                                           ca$`Please select languages spoken.`)
-
-#ca$`Please select languages spoken.` <- gsub('Tigirinya', 
- #                                            'Other',
-  #                                           ca$`Please select languages spoken.`)
-
-#ca$`Please select languages spoken.` <- gsub('Tigrighna', 
- #                                            'Other',
-  #                                           ca$`Please select languages spoken.`)
 
 
                                              
@@ -338,15 +325,15 @@ ca$`GLE Result` <- gsub('N',
 
 # Driving Record Review Result
 ca$`Driving Record Review Result` <- gsub('y',
-                        'Complete',
+                        'Pass',
                         ca$`Driving Record Review Result`)
 
 ca$`Driving Record Review Result` <- gsub('Y',
-                        'Complete',
+                        'Pass',
                         ca$`Driving Record Review Result`)
 
 ca$`Driving Record Review Result` <- gsub('N',
-                        'Incomplete',
+                        'Fail',
                         ca$`Driving Record Review Result`)
 
 # CORI Form
@@ -379,15 +366,31 @@ ca$`Are you currently employed?` <- gsub('n',
                                          'No',
                                          ca$`Are you currently employed?`)
 
+## Accepted Enrollment to Applicant Status
+ca$`Applicant Status` <- gsub('N',
+                              'Declined',
+                              ca$`Applicant Status`)
+
+ca$`Applicant Status` <- gsub('Y',
+                              'Completed CA Training',
+                              ca$`Applicant Status`)
+
+## Basic EMT Course
+ca$`Basic EMT Course` <- gsub('N',
+                              'Fail',
+                              ca$`Basic EMT Course`)
+
+ca$`Basic EMT Course` <- gsub('Y',
+                              'Pass',
+                              ca$`Basic EMT Course`)
+
+## NA
+ca [ is.na(ca) ] <- ''
 
 
 
-
-
-
-
-
-
+## Export to CSV
+write.csv(ca,'tables/city_academy_translated.csv',row.names = FALSE)
 
 
 
